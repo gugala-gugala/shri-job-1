@@ -17,10 +17,10 @@ app.use(fileUpload({
     createParentPath: true,
 }));
 
-app.use((req, res, next) => {
-    console.log(`${new Date()} ${req.method} ${req.url}`);
-    next();
-})
+// app.use((req, res, next) => {
+//     console.log(`${new Date()} ${req.method} ${req.url}`);
+//     next();
+// })
 
 app.get('/list', (req, res) => {
     try {
