@@ -143,6 +143,8 @@ app.get('/merge', async (req, res) => {
     const frontImage = fs.createReadStream(frontPath);
     const backImage = fs.createReadStream(backPath);
 
+    res.type('image/jpeg');
+
     replaceBackground(frontImage, backImage, color, threshold).then(
         (readableStream) => {
             readableStream.pipe(res);
