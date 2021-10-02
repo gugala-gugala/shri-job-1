@@ -37,8 +37,11 @@ app.delete('/image/:id', async (req, res) => {
 
 app.get('/image/:id', async (req, res) => {
     const image = fs.createReadStream(
-      path.resolve(__dirname, `../uploads/${req.params.id}.jpeg`)
+        path.resolve(__dirname, `../uploads/${req.params.id}.jpeg`)
     );
+    res.type('image/jpeg');
+    res.setHeader('content-type', 'image/jpeg')
+
     image.pipe(res);
 })
 
@@ -144,6 +147,7 @@ app.get('/merge', async (req, res) => {
     const backImage = fs.createReadStream(backPath);
 
     res.type('image/jpeg');
+    res.setHeader('content-type', 'image/jpeg')
 
     replaceBackground(frontImage, backImage, color, threshold).then(
         (readableStream) => {
