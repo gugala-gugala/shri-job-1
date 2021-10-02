@@ -129,7 +129,7 @@ app.get('/merge', async (req, res) => {
     }
 
     if (!errors.status) {
-        return res.status(400).send(errors)
+        return res.status(410).send(errors)
     }
 
     const frontPath = path.resolve(__dirname, `../uploads/${front}.jpeg`)
@@ -139,7 +139,7 @@ app.get('/merge', async (req, res) => {
     var backDimensions = sizeOfimage(backPath);
 
     if (frontDimensions.width !== backDimensions.width || frontDimensions.height !== backDimensions.height) {
-        res.status(400).send({status: false});
+        res.status(420).send({status: false});
         return;
     }
 
