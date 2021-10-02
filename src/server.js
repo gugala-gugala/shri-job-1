@@ -32,7 +32,7 @@ app.get('/list', (req, res) => {
 
 app.delete('/image/:id', async (req, res) => {
     db.remove(req.params.id);
-    res.status(204).send(req.params.id);
+    res.send({'id': req.params.id});
 })
 
 app.get('/image/:id', async (req, res) => {
