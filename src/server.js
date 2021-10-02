@@ -128,9 +128,9 @@ app.get('/merge', async (req, res) => {
         }
     }
 
-    if (!errors.status) {
-        return res.status(410).send(errors)
-    }
+    // if (!errors.status) {
+    //     return res.status(410).send(errors)
+    // }
 
     const frontPath = path.resolve(__dirname, `../uploads/${front}.jpeg`)
     const backPath = path.resolve(__dirname, `../uploads/${back}.jpeg`)
