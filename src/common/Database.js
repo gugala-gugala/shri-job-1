@@ -36,8 +36,6 @@ class Database extends EventEmitter {
     }
 
     async remove(dataId) {
-        console.log(dataId)
-
         const obj = this.idToJpeg[dataId];
 
         if (exists(obj.originalFilename)) {
