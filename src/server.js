@@ -53,7 +53,7 @@ app.post('/upload', async (req, res) => {
             let image = req.files.image;
 
             if (image.mimetype === 'image/jpeg') {
-                let fileObject = new FileObject(image.size, image.name)
+                let fileObject = new FileObject(image.size, image.name, req.query.id)
 
                 image.mv('./uploads/' + fileObject.id + '.jpeg');
 
